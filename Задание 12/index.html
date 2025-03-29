@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Промокоды и подарки</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Всплывающее окно -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <img id="gift-icon" src="" alt="Подарок">
+            <p id="gift-text"></p>
+            <button id="close-popup">Отлично!</button>
+        </div>
+    </div>
+
+    <!-- Форма для ввода промокода -->
+    <form id="promo-form">
+        <label for="promo-input">Введите промокод:</label>
+        <input type="text" id="promo-input" placeholder="Введите код">
+        <button type="submit">Активировать</button>
+    </form>
+    <p id="promo-message"></p>
+
+    <script src="script.js"></script>
+</body>
+</html>

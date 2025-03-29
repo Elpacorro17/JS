@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сортировка списка цен</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #f3f3f3;
+            border: 2px solid #4CAF50;
+            padding: 10px 20px;
+            margin: 5px 0;
+            border-radius: 5px;
+            width: 150px;
+            text-align: center;
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Сортировка списка цен</h1>
+
+    <!-- Список цен -->
+    <ul id="priceList"></ul>
+
+    <!-- Кнопки сортировки -->
+    <div class="btn-container">
+        <button id="sortAsc">По возрастанию</button>
+        <button id="sortDesc">По убыванию</button>
+    </div>
+
+    <script>
+        // Исходный массив с ценами
+        const prices = [100, 500, 250, 750, 300];
+
+        // Получаем ссылки на элементы
+        const priceList = document.getElementById('priceList');
+        const sortAscBtn = document.getElementById('sortAsc');
+        const sortDescBtn = document.getElementById('sortDesc');
+
+        // Функция для отображения списка цен
+        function displayPrices(prices) {
+            priceList.innerHTML = ''; // Очищаем список перед обновлением
+            prices.forEach(price => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${price} руб.`;
+                priceList.appendChild(listItem);
+            });
+        }
+
+        // Функция сортировки по возрастанию
+        sortAscBtn.addEventListener('click', () => {
+            const sortedPrices = [...prices].sort((a, b) => a - b);
+            displayPrices(sortedPrices);
+        });
+
+        // Функция сортировки по убыванию
+        sortDescBtn.addEventListener('click', () => {
+            const sortedPrices = [...prices].sort((a, b) => b - a);
+            displayPrices(sortedPrices);
+        });
+
+        // Начальное отображение цен
+        displayPrices(prices);
+    </script>
+</body>
+</html>
